@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息添加</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <style>
+        .change_box {
+            padding: 100px;
+            width: 50vw;
+        }
+
+        .BtnStyle {
+            width: 10vw;
+            margin: 30px 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="post" action="insert_Course.php" class="change_box">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">课程ID</label>
+                <input type="text" class="form-control" id="inputPassword4" name="course_id">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">课程名</label>
+            <input type="text" class="form-control" id="inputAddress" name="course_name">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">课程编号</label>
+            <input type="text" class="form-control" id="inputAddress" name="course_code">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">学期</label>
+            <input type="text" class="form-control" id="inputAddress2" name="semester">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">年</label>
+            <input type="text" class="form-control" id="inputAddress2" name="year">
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-outline-primary BtnStyle">添加</button>
+            <input type="button" class="btn btn-outline-danger BtnStyle" onclick="returnBack()" value="返回"></input>
+        </div>
+    </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script>
+        function returnBack() {
+            window.location.href = "../homepage.php";
+        }
+    </script>
+</body>
+
+</html>

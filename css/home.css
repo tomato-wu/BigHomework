@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#header{
+    margin-bottom: 0%;
+    padding-bottom: 10px;
+    padding-top: 18px;
+    background-color: rgb(48, 50, 62);
+}
+
+#sidebar{
+    background-color: darkgoldenrod;
+    height:100vh;
+}
+#detail{
+    background-color: darkgray;
+    height:100vh;
+}
+.search_ox{
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+}
+.chance_password{
+    margin: 50px;
+}
+.introduce_box{
+    padding: 20px;
+    padding-top: 20px;
+}

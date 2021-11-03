@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息添加</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <style>
+        .change_box {
+            padding: 100px;
+            width: 50vw;
+        }
+
+        .BtnStyle {
+            width: 10vw;
+            margin: 30px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="change_box" method="post" action="insert_social.php">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">实践活动编号</label>
+                <input type="text" class="form-control" id="inputPassword4" name="practice_id">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">活动名称 </label>
+            <input type="text" class="form-control" id="inputAddress" name="practice_experience">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">时间 </label>
+            <input type="text" class="form-control" id="inputAddress" name="date">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">地点</label>
+            <input type="text" class="form-control" id="inputAddress" name="place">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">总时长 </label>
+            <input type="text" class="form-control" id="inputAddress2" name="pracetice_time">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">指导老师</label>
+            <input type="text" class="form-control" id="inputAddress2" name="instructor">
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-outline-primary BtnStyle">添加</button>
+            <input type="button" class="btn btn-outline-danger BtnStyle" onclick="returnBack()" value="返回"></input>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script>
+        function returnBack() {
+            window.location.href = "../homepage.php";
+        }
+    </script>
+</body>
+
+</html>
