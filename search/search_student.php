@@ -1,6 +1,17 @@
 <?php
-require_once("conn.php") ?>
-<title>search_student</title>
+require_once("../conn.php") ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>查询结果</title>
+  <!-- bootstrap样式文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 
 <body>
@@ -23,7 +34,6 @@ require_once("conn.php") ?>
     </thead>
     <tbody>
       <?php
-
       $search = $_POST['search'];
       //利用 查询语句
       $sql = "select * from student where s_id=$search";
@@ -45,8 +55,8 @@ require_once("conn.php") ?>
         echo "<td>{$row['nationality']}</td>";
         echo "<td>{$row['home_address']}</td>";
         echo "<td>
-          <a href='student_delete.php?s_id=({$row['s_id']})'>删除</a>
-          <a href='student_change.php?s_id=({$row['s_id']})'>详细</a>
+          <a href='../delete/delete_student.php?s_id=({$row['s_id']})'>删除</a>
+          <a href='../change/student_change.php?s_id=({$row['s_id']})'>详细</a>
                      
                         </td>";
         echo "</tr>";
@@ -54,3 +64,11 @@ require_once("conn.php") ?>
       echo "<a href='homepage.php'>回到首页</a>";
       mysqli_close($conn);
       ?>
+
+
+      <!-- bootstrap -->
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

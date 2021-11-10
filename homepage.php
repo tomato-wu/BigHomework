@@ -1,3 +1,4 @@
+<?php require_once("conn.php"); ?>
 <!doctype html>
 <html lang="zh-CN">
 
@@ -25,8 +26,6 @@
 </head>
 
 <body>
-  <!-- //////////////////////////////////////////////////连接数据库//////////////////////////////////////////////////////////////// -->
-  <?php require_once("conn.php"); ?>
   <!-- //////////////////////////////////////////////////标题和左边导航栏////////////////////////////////////////////////////////////////// -->
   <div class="jumbotron" id="header">
     <h1 class="display-4" style="color: aliceblue;">学生信息管理系统</h1>
@@ -43,7 +42,6 @@
         <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">学生信息</a>
         <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">查询</a>
         <a class="nav-link" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">修改密码</a>
-        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">设置</a>
       </div>
     </div>
 
@@ -52,7 +50,7 @@
       <div class="tab-content" id="v-pills-tabContent">
 
         <!-- //////////////////////////////////////////////////首页详情/////////////////////////////////////////////////////////////////// -->
-
+        <!-- ========================================================================================================================================================= -->
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
 
@@ -101,6 +99,8 @@
 
         </div>
         <!-- //////////////////////////////////////////////////右边导航栏//////////////////////////////////////////////////////////////////// -->
+        <!-- ========================================================================================================================================================= -->
+
 
         <!-- 右边导航栏 -->
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -110,8 +110,6 @@
               <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">学生信息</a>
               <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">课程安排表</a>
               <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">社会实践</a>
-              <a class="nav-link" id="nav-loan-tab" data-toggle="tab" href="#nav-loan" role="tab" aria-controls="nav-loan" aria-selected="false">贷款</a>
-              <a class="nav-link" id="nav-scholarship-tab" data-toggle="tab" href="#nav-scholarship" role="tab" aria-controls="nav-scholarship" aria-selected="false">奖学金</a>
             </div>
           </nav>
 
@@ -119,6 +117,8 @@
 
 
             <!-- //////////////////////////////////////////////////学生信息（主体）//////////////////////////////////////////////////////////////////// -->
+            <!-- ========================================================================================================================================================= -->
+
 
             <!-- 学生基本信息表 -->
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -128,7 +128,6 @@
               <table class="table">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">学号</th>
                     <th scope="col">姓名</th>
                     <th scope="col">性别</th>
@@ -148,7 +147,6 @@
                   foreach ($conn->query($sql) as $row) {
                     echo "<tr>";
                     echo "<td>{$row['s_id']}</td>";
-                    echo "<td>{$row['s_code']}</td>";
                     echo "<td>{$row['name']}</td>";
                     echo "<td>{$row['gender']}</td>";
                     echo "<td>{$row['class_name']}</td>";
@@ -158,7 +156,7 @@
                     echo "<td>{$row['nationality']}</td>";
                     echo "<td>{$row['home_address']}</td>";
                     echo "<td>
-                                <a href='delete_student.php?s_id=({$row['s_id']})'>删除</a>
+                                <a href='./delete/delete_student.php?s_id=({$row['s_id']})'>删除</a>
                                 <a href='./change/student_change.php?s_id=({$row['s_id']})'>修改</a>
                                   </td>";
                     echo "</tr>";
@@ -196,7 +194,7 @@
                     echo "<td>{$row['year']}</td>";
 
                     echo "<td>
-                                <a href='delete_course.php?course_id=({$row['course_id']})'>删除</a>
+                                <a href='./delete/delete_course.php?course_id=({$row['course_id']})'>删除</a>
                                 <a href='./change/course_change.php?course_id=({$row['course_id']})'>修改</a>
                                   </td>";
                     echo "</tr>";
@@ -236,7 +234,7 @@
                     echo "<td>{$row['instructor']}</td>";
 
                     echo "<td>
-                               <a href='delete_social_practice.php?practice_id=({$row['practice_id']})'>删除</a>
+                               <a href='./delete/delete_social_practice.php?practice_id=({$row['practice_id']})'>删除</a>
                                 <a href='detail.php?s_id=()'>修改</a>
                                   </td>";
                     echo "</tr>";
@@ -245,79 +243,15 @@
                 </tbody>
               </table>
             </div>
-
-            <!-- 贷款 -->
-            <div class="tab-pane fade" id="nav-loan" role="tabpanel" aria-labelledby="nav-loan-tab">
-              <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">贷款名称</th>
-                    <th scope="col">贷款银行</th>
-                    <th scope="col">还款方式</th>
-                    <th scope="col">贷款金额</th>
-                    <th scope="col">操作</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  //3.执行sql语句，cl并实现解析和遍历
-                  $sql = "SELECT * FROM loan ";
-                  foreach ($conn->query($sql) as $row) {
-                    echo "<tr>";
-                    echo "<td>{$row['loan_form']}</td>";
-                    echo "<td>{$row['loan_bank']}</td>";
-                    echo "<td>{$row['repayment_method']}</td>";
-                    echo "<td>{$row['loan_amount']}</td>";
-
-                    echo "<td>
-                            <a href='delete_loan.php?loan_form=({$row['loan_form']})'>删除</a>
-                                <a href='detail.php?s_id=()'>修改</a>
-                                  </td>";
-                    echo "</tr>";
-                  }
-                  ?>
-                </tbody>
-              </table>
-            </div>
-            <!-- 奖学金 -->
-            <div class="tab-pane fade" id="nav-scholarship" role="tabpanel" aria-labelledby="nav-scholarship-tab">
-              <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">奖学金类别</th>
-                    <th scope="col">金额</th>
-                    <th scope="col">操作</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  //3.执行sql语句，cl并实现解析和遍历
-                  $sql = "SELECT * FROM scholarship ";
-                  foreach ($conn->query($sql) as $row) {
-                    echo "<tr>";
-                    echo "<td>{$row['category']}</td>";
-                    echo "<td>{$row['amount']}</td>";
-
-                    echo "<td>
-                                <a href='javascript:doDel()'>删除</a>
-                                <a href='detail.php?s_id=()'>修改</a>
-                                  </td>";
-                    echo "</tr>";
-                  }
-                  ?>
-                </tbody>
-              </table>
-            </div>
-
-
-
           </div> <!-- 导航栏结束 -->
-
-
-
         </div>
-        <!-- ***********************************************************查询详情***************************************************************** -->
+
+
+
+
         <!-- /////////////////////////////////////////查询详情//////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- ========================================================================================================================================================= -->
+
 
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
 
@@ -332,16 +266,13 @@
             <li class="nav-item" role="presentation">
               <a class="nav-link" id="pills-searchcontact-tab" data-toggle="pill" href="#pills-searchcontact" role="tab" aria-controls="pills-searchcontact" aria-selected="false">实践活动信息查询</a>
             </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="pills-searchschoolship-tab" data-toggle="pill" href="#pills-searchschoolship" role="tab" aria-controls="pills-searchschoolship" aria-selected="false">奖学金信息查询</a>
-            </li>
           </ul>
 
           <div class="tab-content" id="pills-tabContent">
-            <!-- 学生信息查询 -->
+            <!-- 学生信息查询=============================================================================================================================== -->
             <div class="tab-pane fade show active" id="pills-searchhome" role="tabpanel" aria-labelledby="pills-searchhome-tab">
               <!-- 查询框 -->
-              <form method="post" action="search_student.php">
+              <form method="post" action="./search/search_student.php">
                 <div class="input-group mb-3 search_ox">
                   <input type="text" class="form-control" placeholder="请输入s_id查询" aria-label="Recipient's username" aria-describedby="button-addon2" name="search">
                   <div class="input-group-append">
@@ -354,7 +285,6 @@
               <table class="table">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">学号</th>
                     <th scope="col">姓名</th>
                     <th scope="col">性别</th>
@@ -369,21 +299,10 @@
                 </thead>
                 <tbody>
                   <?php
-                  // 3.执行sql语句，cl并实现解析和遍历
-                  $sql = "SELECT * FROM student WHERE s_id =" . $_GET['s_id'];
-                  echo ("要查询的学号：" . $_GET['s_id']);
-
-
-                  if ($_GET['s_id']) {
-                    $sql = "SELECT * FROM student WHERE s_id =" . $_GET['s_id'];
-                  } else {
-                    $sql = "SELECT * FROM student";
-                  }
-
+                  $sql = "SELECT * FROM student";
                   foreach ($conn->query($sql) as $row) {
                     echo "<tr>";
                     echo "<td>{$row['s_id']}</td>";
-                    echo "<td>{$row['s_code']}</td>";
                     echo "<td>{$row['name']}</td>";
                     echo "<td>{$row['gender']}</td>";
                     echo "<td>{$row['class_name']}</td>";
@@ -402,7 +321,10 @@
                 </tbody>
               </table>
             </div>
-            <!-- 课程信息查询 -->
+
+
+
+            <!-- 课程信息查询========================================================================================================================== -->
             <div class="tab-pane fade" id="pills-searchprofile" role="tabpanel" aria-labelledby="pills-searchprofile-tab">
 
               <!-- 查询框 -->
@@ -437,10 +359,8 @@
                     echo "<td>{$row['year']}</td>";
 
                     echo "<td>
-                            <a href='javascript:del_sure({$row['s_id']})'>删除</a>
-                            <a href='student_change.php?s_id=({$row['s_id']})'>修改</a>
-                                // // <a href='javascript:doDel(1)'>删除</a>
-                                // <a href='detail.php'>修改</a>
+                            <a href='javascript:del_sure({$row['course_id']})'>删除</a>
+                            <a href='student_change.php?s_id=({$row['course_id']})'>修改</a>
                                   </td>";
                     echo "</tr>";
                   }
@@ -449,7 +369,7 @@
               </table>
             </div>
 
-            <!-- s社会实践信息查询 -->
+            <!-- 社会实践信息查询========================================================================================================================= -->
             <div class="tab-pane fade" id="pills-searchcontact" role="tabpanel" aria-labelledby="pills-searchcontact-tab">
               <!-- 查询框 -->
               <div class="input-group mb-3 search_ox">
@@ -486,10 +406,8 @@
                     echo "<td>{$row['instructor']}</td>";
 
                     echo "<td>
-                                // <a href='javascript:doDel()'>删除</a>
-                                <a href='javascript:del_sure({$row['s_id']})'>删除</a>
-                                <a href='student_change.php?s_id=({$row['s_id']})'>修改</a>
-                              //   <a href='detail.php?s_id=()'>修改</a>
+                                <a href='javascript:del_sure({$row['practice_id']})'>删除</a>
+                                <a href='student_change.php?s_id=({$row['practice_id']})'>修改</a>
                                   </td>";
                     echo "</tr>";
                   }
@@ -497,47 +415,6 @@
                 </tbody>
               </table>
             </div>
-
-            <div class="tab-pane fade" id="pills-searchschoolship" role="tabpanel" aria-labelledby="pills-searchschoolship-tab">
-              <!-- 查询框 -->
-              <div class="input-group mb-3 search_ox">
-                <input type="text" class="form-control" placeholder="请输入奖学金类型名称查询" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-secondary" type="button" id="button-addon2">查询</button>
-                </div>
-              </div>
-
-              <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">奖学金类别</th>
-                    <th scope="col">金额</th>
-                    <th scope="col">操作</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  //3.执行sql语句，cl并实现解析和遍历
-                  $sql = "SELECT * FROM scholarship ";
-                  foreach ($conn->query($sql) as $row) {
-                    echo "<tr>";
-                    echo "<td>{$row['category']}</td>";
-                    echo "<td>{$row['amount']}</td>";
-
-                    echo "<td>
-                                // <a href='javascript:doDel()'>删除</a>
-                                <a href='javascript:del_sure({$row['s_id']})'>删除</a>
-                                <a href='student_change.php?s_id=({$row['s_id']})'>修改</a>
-                                // <a href='detail.php?s_id=()'>修改</a>
-                                  </td>";
-                    echo "</tr>";
-                  }
-                  ?>
-                </tbody>
-              </table>
-            </div>
-
-
           </div>
         </div>
         <!-- ***********************************************************修改密码***************************************************************** -->
@@ -560,37 +437,8 @@
             <button type="submit" name='changepass' class="btn btn-primary">确认</button>
           </form>
         </div>
-        <!-- ***********************************************************设置详情***************************************************************** -->
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">设置详情</div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <script>
@@ -615,12 +463,12 @@
       }
     </script>
 
-
-
-
+    <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+
 </body>
 
 </html>

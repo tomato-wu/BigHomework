@@ -123,7 +123,7 @@
              </div>
          </div>
          <div>
-             <button type="submit" class="btn btn-outline-primary BtnStyle">添加</button>
+             <button type="submit" class="btn btn-outline-primary BtnStyle">修改</button>
              <input type="button" class="btn btn-outline-danger BtnStyle" onclick="returnBack()" value="返回"></input>
          </div>
      </form>
