@@ -28,7 +28,7 @@
 <body>
   <!-- //////////////////////////////////////////////////标题和左边导航栏////////////////////////////////////////////////////////////////// -->
   <div class="jumbotron" id="header">
-    <h1 class="display-4" style="color: aliceblue;">学生信息管理系统</h1>
+    <h1 class="display-4" style="color: aliceblue;">学生信息管理系统111</h1>
     <p class="lead" style="color: aliceblue;">This is a simple student information system.</p>
     <a class="btn btn-danger LoginOut" href="home.php" role="button">退出</a>
 
