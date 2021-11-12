@@ -6,7 +6,7 @@
     <title>注册页面</title>
     <!-- bootstrap样式文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/regist.css">
+    <link rel="stylesheet" type="text/css" href="../css/regist.css">
 </head>
 <style>
     body {
@@ -24,7 +24,7 @@
     <div class="wrapper">
         <article>
             <div class="main">
-                <form action="addUser.php" method="post" target="_blank" class="formBox">
+                <form action="addUser.php" method="post" target="_blank" class="formBox" name="formBox" onsubmit="return registerBtn()">
 
                     <div class="userName">
                         <input type="text" name="userName" placeholder="用户名">
@@ -58,7 +58,30 @@
 
     <script>
         function returnBack() {
-            window.location.href = 'home.php'
+            window.location.href = '../home.php'
+        }
+
+        // 表单验证
+        function registerBtn() {
+            if ((document.formBox.userName.value != '') && (document.formBox.userPass1.value != '') && (document.formBox
+                    .userPass2.value != '') && (document.formBox.name.value != '')) {
+                // 判断用户名格式是否正确
+                isNum = /^[0-9]*$/;
+                var user = document.formBox.userName.value;
+                var result = isNum.test(user);
+                if (!result) {
+                    alert("用户名格式不正确，只能为数字")
+                    return false
+                } else if (document.formBox.userPass1.value != document.formBox.userPass2.value) {
+                    alert("前后两次密码输入不一致，注册失败！")
+                    return false
+                } else {
+                    return true
+                }
+            } else {
+                alert("注册的账号密码和真实姓名不为空")
+                return false
+            }
         }
     </script>
     <!-- bootstrap -->

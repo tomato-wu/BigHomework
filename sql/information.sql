@@ -30,10 +30,11 @@ create table class
 
 /*用户*/
 create table users
-(
-    users_name varchar(20),
-	password varchar(20),
-	primary key(users_name)
+( 
+     userName char(20) not null unique, 
+     password char(20) not null, 
+     name varchar(30),
+     primary key(userName)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- select * from users;
 
@@ -161,8 +162,8 @@ insert into class values('Law','法学1901班','Alin');
 insert into class values('Law','法学1902班','赵默笙');
 
 /*用户*/
-insert into users values('123','123');
-insert into users values('admin','123');
+insert into users values('20191003027','123','邬坤源');
+
 
 
 /*课程*/

@@ -1,5 +1,5 @@
 <?php
-require_once("dblink.php");
+require_once("../conn.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,9 +31,9 @@ require_once("dblink.php");
                 //信息存入数据库
                 $sql = "insert into users value( '$userName','$userPass1','$name' )";
 
-                if (mysqli_query($link, $sql)) {
+                if (mysqli_query($conn, $sql)) {
                     echo "<script>alert('注册成功，马上登录')</script>";
-                    header("Refresh:0;url=home.php");
+                    header("Refresh:0;url=../home.php");
                 } else {
                     echo "注册失败 <br />";
                     echo  "<a href='register.php'>请返回重新注册</a>";
@@ -52,7 +52,7 @@ require_once("dblink.php");
     }
     ?>
     <?php
-    mysqli_close($link); //关闭数据库连接
+    mysqli_close($conn); //关闭数据库连接
     ?>
 
 
