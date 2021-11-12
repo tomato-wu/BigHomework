@@ -18,6 +18,12 @@
         background-color: white;
         width: 400px;
     }
+
+    .ReturnStyle {
+        width: 290px;
+        margin-left: 50px;
+        margin-top: 20px;
+    }
 </style>
 
 <body>
@@ -48,8 +54,9 @@
 
                     <button class="btn btn-primary" type="submit" name="userSubmit" value="注册">注册</button>
 
-                    <button class="btn btn-outline-primary" onclick="returnBack()">返回</button>
                 </form>
+                <button class="btn btn-outline-primary ReturnStyle" onclick="returnBack()">返回</button>
+
             </div>
         </article>
     </div>

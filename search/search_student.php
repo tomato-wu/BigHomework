@@ -19,7 +19,6 @@ require_once("../conn.php") ?>
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">学号</th>
         <th scope="col">姓名</th>
         <th scope="col">性别</th>
@@ -45,7 +44,6 @@ require_once("../conn.php") ?>
         echo "<tr>";
 
         echo "<td>{$row['s_id']}</td>";
-        echo "<td>{$row['s_code']}</td>";
         echo "<td>{$row['name']}</td>";
         echo "<td>{$row['gender']}</td>";
         echo "<td>{$row['class_name']}</td>";
@@ -61,7 +59,7 @@ require_once("../conn.php") ?>
                         </td>";
         echo "</tr>";
       }
-      echo "<a href='homepage.php'>回到首页</a>";
+      echo "<a href='../homepage.php'>回到首页</a>";
       mysqli_close($conn);
       ?>
 
