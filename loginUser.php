@@ -1,10 +1,7 @@
 <?php
 require_once("conn.php");
 ?>
-
-<meta charset="utf-8">
 <?php
-
 $username = $_POST['userName'];
 $userpass = $_POST['userPass'];
 if (isset($username) && isset($userpass)) { //判断用户名和密码均不为空
