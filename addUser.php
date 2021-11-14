@@ -1,5 +1,5 @@
 <?php
-require_once("../conn.php");
+require_once("conn.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +16,8 @@ require_once("../conn.php");
 
 
     <?php
-    if (isset($_POST['userSubmit'])) { //判断是否点击注册按钮
-        $userName = $_POST['userName'];
+    if (isset($_POST['RegisterSubmit'])) { //判断是否点击注册按钮
+        $userName = $_POST['RegisterUserName'];
         $userPass1 = $_POST['userPass1'];
         $userPass2 = $_POST['userPass2'];
         $name = $_POST['name'];
@@ -33,7 +33,7 @@ require_once("../conn.php");
 
                 if (mysqli_query($conn, $sql)) {
                     echo "<script>alert('注册成功，马上登录')</script>";
-                    header("Refresh:0;url=../home.php");
+                    header("Refresh:0;url=home.php");
                 } else {
                     echo "注册失败 <br />";
                     echo  "<a href='register.php'>请返回重新注册</a>";
