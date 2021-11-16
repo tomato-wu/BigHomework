@@ -95,7 +95,7 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
      <script>
          function returnBack() {
-             window.location.href = "../homepage.php";
+             window.location.href = "../homepage.php?type=informationPage";
          }
      </script>
  </body>
