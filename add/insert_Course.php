@@ -17,7 +17,7 @@ $result = mysqli_query($conn, $sql);
 
 if ($result) {
     echo "<script>alert('添加成功，返回查看')</script>";
-    header("Refresh:0;url=../homepage.php");
+    header("Refresh:0;url=../homepage.php?type=informationPage");
 } else {
     echo ("课程信息添加失败！");
 }
