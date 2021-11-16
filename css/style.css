@@ -36,7 +36,7 @@ section .container .user{
 section .container .user .imgBx{
     position: relative;
     width: 50%;
-    height: 100%:
+    height: 100%;
     background: #ff0;
     transition : 0.5s;
 }

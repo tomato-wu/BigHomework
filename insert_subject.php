@@ -5,8 +5,6 @@
  -->
 <?php
 require_once("conn.php"); //连接数据库,require_once
-
-
 $course_id = $_POST['course_id'];
 $course_name = $_POST['course_name'];
 $semester = $_POST['semester'];
