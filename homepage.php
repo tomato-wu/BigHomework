@@ -49,7 +49,7 @@
         <!--   表单显示      -->
         <?php
         if ($_GET['type'] == 'introducePage') {
-          require_once "./DetailPage/introducePage.php";
+          require_once "./DetailPage/introducePage.html";
         }
         if ($_GET['type'] == 'informationPage') {
           require_once "./DetailPage/informationPage.php";
