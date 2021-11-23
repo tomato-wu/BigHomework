@@ -12,6 +12,16 @@ require_once("../conn.php") ?>
   <title>查询结果</title>
   <!-- bootstrap样式文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <style>
+    .ReturnBtn {
+      width: 160px;
+      position: absolute;
+      top: 20%;
+      left: 91%;
+      transform: translate(-50%, -50%);
+
+    }
+  </style>
 </head>
 
 <body>
@@ -59,14 +69,22 @@ require_once("../conn.php") ?>
                         </td>";
         echo "</tr>";
       }
-      echo "<a href='../homepage.php'>回到首页</a>";
+      // echo "<a href='../homepage.php'>回到首页</a>";
       mysqli_close($conn);
       ?>
 
+    </tbody>
+  </table>
 
-      <!-- bootstrap -->
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <button type="button" class="btn btn-danger ReturnBtn" onclick="ReturnTo()">返回</button>
+  <!-- bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    function ReturnTo() {
+      window.location = "../homepage.php?type=selectPage"
+    }
+  </script>
 </body>
 
 </html>
