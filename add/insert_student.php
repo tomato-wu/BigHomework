@@ -3,7 +3,6 @@
 require_once("../conn.php");
 
 $s_id = $_POST['s_id'];
-$s_code = $_POST['s_code'];
 $name = $_POST['name'];
 $gender = $_POST['gender'];
 $class_name = $_POST['class_name'];
@@ -15,8 +14,8 @@ $home_address = $_POST['home_address'];
 
 
 
-$sql = "INSERT INTO `student` (`s_id` ,`s_code`,`name` ,`gender`,`class_name` ,`date_birth`,`data_enrollment` ,`native_place`,`nationality` ,`home_address`,`users_name`)
-VALUES ('$s_id','$s_code','$name','$gender','$class_name','$date_birth','$data_enrollment','$native_place','$nationality','$home_address','admin')";
+$sql = "INSERT INTO `student` (`s_id` ,`name` ,`gender`,`class_name` ,`date_birth`,`data_enrollment` ,`native_place`,`nationality` ,`home_address`,`users_name`)
+VALUES ('$s_id','$name','$gender','$class_name','$date_birth','$data_enrollment','$native_place','$nationality','$home_address','admin')";
 
 $result = mysqli_query($conn, $sql);
 

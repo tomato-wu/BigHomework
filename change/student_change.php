@@ -47,7 +47,6 @@
         if (isset($_POST['s_id'])) {
             $sql = "UPDATE student SET 
 		s_id = '{$_POST['s_id']}',
-		s_code = '{$_POST['s_code']}',
 		name = '{$_POST['name']}',
 		gender = '{$_POST['gender']}',
 		class_name = '{$_POST['class_name']}',
@@ -67,48 +66,44 @@
      <form method="post" action="student_change_method.php?action=student" class="change_box">
          <div class="form-row">
              <div class="form-group col-md-6">
-                 <label for="s_id">ID</label>
+                 <label for="s_id">学号</label>
                  <input type="text" class="form-control" id="s_id" name='s_id' value="<?php echo $stu[0]; ?>" readonly>
              </div>
              <div class="form-group col-md-6">
-                 <label for="s_code">学号</label>
-                 <input type="text" class="form-control" id="s_code" name='s_code' value="<?php echo $stu[1]; ?>">
-             </div>
-             <div class="form-group col-md-6">
                  <label for="name">姓名</label>
-                 <input type="text" class="form-control" id="name" name='name' value="<?php echo $stu[2]; ?>">
+                 <input type="text" class="form-control" id="name" name='name' value="<?php echo $stu[1]; ?>">
              </div>
          </div>
          <div class="form-group">
              <label for="class_name">班级</label>
-             <input type="text" class="form-control" id="class_name" name='class_name' placeholder="1234 Main St" value="<?php echo $stu[4]; ?>">
+             <input type="text" class="form-control" id="class_name" name='class_name' placeholder="1234 Main St" value="<?php echo $stu[3]; ?>">
          </div>
          <div class="form-group">
              <label for="native_place">生源地</label>
-             <input type="text" class="form-control" id="native_place" name='native_place' placeholder="Apartment, studio, or floor" value="<?php echo $stu[7]; ?>">
+             <input type="text" class="form-control" id="native_place" name='native_place' placeholder="Apartment, studio, or floor" value="<?php echo $stu[6]; ?>">
          </div>
          <div class="form-group">
              <label for="date_birth">出身日期</label>
-             <input type="text" class="form-control" id="date_birth" placeholder="Apartment, studio, or floor" name='date_birth' value="<?php echo $stu[5]; ?>">
+             <input type="text" class="form-control" id="date_birth" placeholder="Apartment, studio, or floor" name='date_birth' value="<?php echo $stu[4]; ?>">
          </div>
          <div class="form-group">
              <label for="data_enrollment">入学年份</label>
-             <input type="text" class="form-control" id="data_enrollment" placeholder="Apartment, studio, or floor" name='data_enrollment' value="<?php echo $stu[6]; ?>">
+             <input type="text" class="form-control" id="data_enrollment" placeholder="Apartment, studio, or floor" name='data_enrollment' value="<?php echo $stu[5]; ?>">
          </div>
          <div class="form-row">
              <div class="form-group col-md-6">
                  <label for="home_address">家庭住址</label>
-                 <input type="text" class="form-control" id="home_address" name='home_address' value="<?php echo $stu[9]; ?>">
+                 <input type="text" class="form-control" id="home_address" name='home_address' value="<?php echo $stu[8]; ?>">
              </div>
              <div class="form-group col-md-6">
                  <label for="nationality">民族</label>
-                 <input type="text" class="form-control" id="nationality" name='nationality' value="<?php echo $stu[8]; ?>">
+                 <input type="text" class="form-control" id="nationality" name='nationality' value="<?php echo $stu[7]; ?>">
              </div>
              <div class="form-group col-md-4">
                  <label for="gender">性别</label>
                  <select id="gender" class="form-control">
                      <?php
-                        if ($stu[3] == "男") {
+                        if ($stu[2] == "男") {
                         ?>
                          <option selected>男</option>
                          <option>女</option>
