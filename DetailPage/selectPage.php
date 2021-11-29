@@ -69,19 +69,20 @@
 
     <!-- 课程信息查询========================================================================================================================== -->
     <div class="tab-pane fade" id="pills-searchprofile" role="tabpanel" aria-labelledby="pills-searchprofile-tab">
-
+    <form method="post" action="./search/search_course.php">
         <!-- 查询框 -->
         <div class="input-group mb-3 search_ox">
-            <input type="text" class="form-control" placeholder="请输入课程编号查询" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control" placeholder="请输入课程编号查询" aria-label="Recipient's username" aria-describedby="button-addon2" name="search1">
             <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" id="button-addon2">查询</button>
+                <button class="btn btn-secondary" type="submit" id="button-addon2">查询</button>
             </div>
         </div>
+            </form>
         <!-- 查询出来的表格 -->
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">序号</th>
+    
                     <th scope="col">课程编号</th>
                     <th scope="col">课程名称</th>
                     <th scope="col">学期</th>
@@ -95,15 +96,15 @@
                 $sql = "SELECT * FROM course ";
                 foreach ($conn->query($sql) as $row) {
                     echo "<tr>";
+                   
                     echo "<td>{$row['course_id']}</td>";
-                    echo "<td>{$row['course_code']}</td>";
                     echo "<td>{$row['course_name']}</td>";
                     echo "<td>{$row['semester']}</td>";
                     echo "<td>{$row['year']}</td>";
 
                     echo "<td>
                   <a href='javascript:del_sure({$row['course_id']})'>删除</a>
-                  <a href='student_change.php?s_id=({$row['course_id']})'>修改</a>
+                  <a href='course_change.php?course_id=({$row['course_id']})'>修改</a>
                         </td>";
                     echo "</tr>";
                 }
@@ -116,9 +117,9 @@
     <div class="tab-pane fade" id="pills-searchcontact" role="tabpanel" aria-labelledby="pills-searchcontact-tab">
         <!-- 查询框 -->
         <div class="input-group mb-3 search_ox">
-            <input type="text" class="form-control" placeholder="请输入实践活动名称查询" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control" placeholder="请输入实践活动名称查询" aria-label="Recipient's username" aria-describedby="button-addon3">
             <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" id="button-addon2">查询</button>
+                <button class="btn btn-secondary" type="button" id="button-addon3">查询</button>
             </div>
         </div>
 

@@ -48,7 +48,6 @@
             $sql = "UPDATE course SET 
 		course_id = '{$_POST['course_id']}',
 		course_name = '{$_POST['course_name']}',
-		course_code = '{$_POST['course_code']}',
 		semester = '{$_POST['semester']}',
 		year = '{$_POST['year']}',
 		WHERE course_id = '{$_POST['course_id']}';";
@@ -59,28 +58,25 @@
         $row = mysqli_fetch_array($result1);
         ?>
 
-     <form method="post" action="course_change_method.php?action=course" class="change_box">
+     <form method="post" action="student_change_method.php?action=course" class="change_box">
          <div class="form-row">
              <div class="form-group col-md-6">
-                 <label for="course_id">课程ID</label>
-                 <input type="text" class="form-control" id="course_id" name='course_id' value="<?php echo $courseTag[0]; ?>" readonly>
+                 <label for="course_id">课程编号</label>
+                 <input type="text" class="form-control" id="course_id" name='course_id' value="<?php echo $courseTag[1]; ?>" readonly>
              </div>
              <div class="form-group col-md-6">
                  <label for="course_name">课程名称</label>
-                 <input type="text" class="form-control" id="course_name" name='course_name' value="<?php echo $courseTag[1]; ?>">
+                 <input type="text" class="form-control" id="course_name" name='course_name' value="<?php echo $courseTag[0]; ?>">
              </div>
          </div>
+         
          <div class="form-group">
-             <label for="course_code">课程编号</label>
-             <input type="text" class="form-control" id="course_code" name='course_code' value="<?php echo $courseTag[2]; ?>">
+             <label for="semester">学期 </label>
+             <input type="text" class="form-control" id="semester" name='semester' value="<?php echo $courseTag[2]; ?>">
          </div>
          <div class="form-group">
-             <label for="native_place">学期 </label>
-             <input type="text" class="form-control" id="native_place" name='native_place' value="<?php echo $courseTag[3]; ?>">
-         </div>
-         <div class="form-group">
-             <label for="native_place">年份 </label>
-             <input type="text" class="form-control" id="native_place" name='native_place' value="<?php echo $courseTag[4]; ?>">
+             <label for="year">年份 </label>
+             <input type="text" class="form-control" id="year" name='year' value="<?php echo $courseTag[3]; ?>">
          </div>
 
          <div>

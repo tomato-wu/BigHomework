@@ -66,7 +66,7 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">序号</th>
+                    
                     <th scope="col">课程编号</th>
                     <th scope="col">课程名称</th>
                     <th scope="col">学期</th>
@@ -80,8 +80,8 @@
                 $sql = "SELECT * FROM course ";
                 foreach ($conn->query($sql) as $row) {
                     echo "<tr>";
+                   
                     echo "<td>{$row['course_id']}</td>";
-                    echo "<td>{$row['course_code']}</td>";
                     echo "<td>{$row['course_name']}</td>";
                     echo "<td>{$row['semester']}</td>";
                     echo "<td>{$row['year']}</td>";
