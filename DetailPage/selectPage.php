@@ -115,11 +115,12 @@
 
     <!-- 社会实践信息查询========================================================================================================================= -->
     <div class="tab-pane fade" id="pills-searchcontact" role="tabpanel" aria-labelledby="pills-searchcontact-tab">
-        <!-- 查询框 -->
+    <form method="post" action="./search/search_social_practice.php">   
+    <!-- 查询框 -->
         <div class="input-group mb-3 search_ox">
-            <input type="text" class="form-control" placeholder="请输入实践活动名称查询" aria-label="Recipient's username" aria-describedby="button-addon3">
+            <input type="text" class="form-control" placeholder="请输入实践活动编号" aria-label="Recipient's username" aria-describedby="button-addon2" name="search2">
             <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" id="button-addon3">查询</button>
+                <button class="btn btn-secondary" type="submit" id="button-addon3">查询</button>
             </div>
         </div>
 
@@ -139,7 +140,7 @@
             <tbody>
                 <?php
                 //3.执行sql语句，cl并实现解析和遍历
-                $sql = "SELECT * FROM social_practice ";
+                $sql = "SELECT * FROM social_practice ;";
                 foreach ($conn->query($sql) as $row) {
                     echo "<tr>";
                     echo "<td>{$row['practice_id']}</td>";
@@ -150,8 +151,8 @@
                     echo "<td>{$row['instructor']}</td>";
 
                     echo "<td>
-                      <a href='javascript:del_sure({$row['practice_id']})'>删除</a>
-                      <a href='student_change.php?s_id=({$row['practice_id']})'>修改</a>
+                      <a href='delete_social_practice.php?s_id=({$row['practice_id']})'>删除</a>
+                      <a href='change_social_practice.php?s_id=({$row['practice_id']})'>修改</a>
                         </td>";
                     echo "</tr>";
                 }

@@ -20,13 +20,6 @@ create table student
 	primary key(s_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*班级*/
-create table class
-(
-    class_name varchar(20),
-	major varchar(20),
-	counselor varchar(20) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*用户*/
 create table users
@@ -40,8 +33,7 @@ create table users
 
 /*课程*/
 create table course
-(
-   
+(   
     course_name varchar(20),
 	course_id varchar(20),
 	semester varchar(20),
@@ -55,6 +47,7 @@ create table section
 (
     s_id varchar(20),
 	course_id varchar(20),
+	score int,
 	primary key(s_id,course_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -75,7 +68,6 @@ create table student_social_practice
 (
     s_id varchar(20),
 	practice_id varchar(20),
-	score int,
 	primary key(s_id,practice_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -92,13 +84,6 @@ insert into student values('201909105','迪丽热巴','女','会计1905班','200
 insert into student values('201909106','莫文蔚','女','会计1905班','2001.10.09','2019.09.07','广东省佛山市','汉族','广东省佛山市顺德区大得街区','HaHa');
 insert into student values('201909107','何以琛','男','法学1901班','2000.11.12','2019.09.07','浙江省杭州市','汉族','上海市松江区莱特小城','Opijo');
 
-/*班级*/
-insert into class values('Comp.Sci','软件工程1901班','Stark');
-insert into class values('Comp.Sci','软件工程1904班','Ella');
-insert into class values('Accountant','会计1905班','卢思浩');
-insert into class values('Accountant','会计1903班','Baby');
-insert into class values('Law','法学1901班','Alin');
-insert into class values('Law','法学1902班','赵默笙');
 
 /*用户*/
 insert into users values('20191003027','123','邬坤源');
@@ -106,11 +91,11 @@ insert into users values('20191003155','123','sanen');
 
 
 /*课程*/
-insert into course values('数据结构','CS001','Spring','2019');
-insert into course values('JAVA','CS002','Spring','2020');
-insert into course values('法律基础','Law001','Fall','2019');
-insert into course values('微观经济学','Acca001','Fall','2020');
-insert into course values('宏观经济学','Acca002','Spring','2019');
+insert into course values('数据结构','001','Spring','2019');
+insert into course values('JAVA','002','Spring','2020');
+insert into course values('法律基础','003','Fall','2019');
+insert into course values('微观经济学','004','Fall','2020');
+insert into course values('宏观经济学','005','Spring','2019');
 
 /*学生-选课*/
 insert into section values('201909101','001',98);
@@ -131,13 +116,10 @@ insert into social_practice values('005','亚运会','暑假','学生高中','30
 insert into social_practice values('006','广交会','暑假','广州琶洲','30','Baby');
 insert into social_practice values('007','社区核酸检测支援','寒假','小谷围街道','30','Stark');
 /*学生-社会实践*/
-insert into student_social_practice values('2019001','social-001');
-insert into student_social_practice values('2019002','social-001');
-insert into student_social_practice values('2019003','social-001');
-insert into student_social_practice values('2019004','social-001');
-insert into student_social_practice values('2019005','social-001');
-insert into student_social_practice values('2019006','social-002');
-insert into student_social_practice values('2019006','social-003');
-insert into student_social_practice values('2019007','social-002');
-insert into student_social_practice values('2019007','social-003');
-insert into student_social_practice values('2019008','social-001');
+insert into student_social_practice values('201909101','001');
+insert into student_social_practice values('201909102','001');
+insert into student_social_practice values('201909103','003');
+insert into student_social_practice values('201909104','002');
+insert into student_social_practice values('201909105','005');
+insert into student_social_practice values('201909106','006');
+insert into student_social_practice values('201909107','007');
