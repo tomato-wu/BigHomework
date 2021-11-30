@@ -129,7 +129,7 @@
                     echo "<td>
                                <a href='./delete/delete_social_practice.php?practice_id=({$row['practice_id']})'>删除</a>
                                <a href='./change/change_social_practice.php?practice_id=({$row['practice_id']})'>修改</a>
-                                  </td>";
+                            </td>";
                     echo "</tr>";
                 }
                 ?>
