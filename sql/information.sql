@@ -42,11 +42,12 @@ create table course
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-/*学生-选课*/
-create table section
+/*学生-关系*/
+create table relation
 (
     s_id varchar(20),
 	course_id varchar(20),
+	practice_id varchar(20),
 	score int,
 	primary key(s_id,course_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -63,15 +64,9 @@ create table social_practice
 	primary key(practice_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*学生-社会实践*/
-create table student_social_practice
-(
-    s_id varchar(20),
-	practice_id varchar(20),
-	primary key(s_id,practice_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+create view  s_relation as select  * from student natural join course natural join social_practice natural join relation;
 
 /*插入数据*/
 /*学生*/
@@ -97,14 +92,6 @@ insert into course values('法律基础','003','Fall','2019');
 insert into course values('微观经济学','004','Fall','2020');
 insert into course values('宏观经济学','005','Spring','2019');
 
-/*学生-选课*/
-insert into section values('201909101','001',98);
-insert into section values('201909103','001',92);
-insert into section values('201909104','002',96);
-insert into section values('201909105','002',96);
-insert into section values('201909106','Acca002',80);
-insert into section values('201909107','Acca001',69);
-
 
 
 /*社会实践*/
@@ -115,11 +102,11 @@ insert into social_practice values('004','省长杯',' 4月','广外','30','Baby
 insert into social_practice values('005','亚运会','暑假','学生高中','30','Stark');
 insert into social_practice values('006','广交会','暑假','广州琶洲','30','Baby');
 insert into social_practice values('007','社区核酸检测支援','寒假','小谷围街道','30','Stark');
-/*学生-社会实践*/
-insert into student_social_practice values('201909101','001');
-insert into student_social_practice values('201909102','001');
-insert into student_social_practice values('201909103','003');
-insert into student_social_practice values('201909104','002');
-insert into student_social_practice values('201909105','005');
-insert into student_social_practice values('201909106','006');
-insert into student_social_practice values('201909107','007');
+
+/*学生-关系*/
+insert into relation values('201909101','001','001',98);
+insert into relation values('201909103','001','002',92);
+insert into relation values('201909104','002','003',96);
+insert into relation values('201909105','002','004',96);
+insert into relation values('201909106','Acca002','005',80);
+insert into relation values('201909107','Acca001','006',69);
