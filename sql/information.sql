@@ -1,6 +1,5 @@
-drop database information ;
-create database information;
-use information;
+create database SystemInformation;
+use SystemInformation;
 
 
 /*建表*/
@@ -30,6 +29,15 @@ create table users
      primary key(userName)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- select * from users;
+
+/*管理员*/
+create table admins
+( 
+    adminName char(20) not null unique, 
+     password char(20) not null, 
+     name varchar(30),
+     primary key(adminName)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*课程*/
 create table course
@@ -89,6 +97,9 @@ insert into student values('201909107','何以琛','男','法学1901班','2000.1
 /*用户*/
 insert into users values('20191003027','123','邬坤源');
 insert into users values('20191003155','123','sanen');
+
+/*管理员*/
+insert into admins values('20191003027','12','小番茄夫斯基');
 
 
 /*课程*/
