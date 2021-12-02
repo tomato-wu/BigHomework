@@ -16,7 +16,7 @@ if (isset($username) && isset($userpass)) { //判断用户名和密码均不为�
 		</script>
 <?php
 	} else {
-		header("Location:./StudentRegister/index.php");
+		header("Location:StudentPage.php");
 	}
 }
 
