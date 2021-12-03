@@ -22,7 +22,7 @@ create table student
 
 /*用户*/
 create table users
-( 
+(
      userName char(20) not null unique, 
      password char(20) not null, 
      name varchar(30),
