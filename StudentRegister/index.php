@@ -28,7 +28,9 @@
                         <!-- 确认密码 =======================================================-->
 
                         <h3>确认密码</h3>
-                        <input class="text" type="password" name="userPass2">
+                        <input class="text" type="password" name="userPass2" onblur="checkPassword(this.value)">
+                        <span id="DoCheckPassword"> </span>
+
                         <!-- 姓名 =======================================================-->
                         <h3>姓名</h3>
                         <input class="text" type="text" name="name">
@@ -92,6 +94,13 @@
             }
             xmlhttp.open("GET", "checkName.php?q=" + str + "&t=" + Math.random(), true);
             xmlhttp.send();
+        }
+
+        // 验证两次密码是否相同
+        function checkPassword(password) {
+            if (document.RegisterFormBox.userPass1.value != password) {
+                document.getElementById("DoCheckPassword").innerHTML = "前后两次密码不一致";
+            }
         }
     </script>
 </body>
