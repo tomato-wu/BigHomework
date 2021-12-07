@@ -94,9 +94,12 @@ insert into student values('201909106','莫文蔚','女','会计1905班','2001.1
 insert into student values('201909107','何以琛','男','法学1901班','2000.11.12','2019.09.07','浙江省杭州市','汉族','上海市松江区莱特小城','Opijo');
 
 
+
 /*用户*/
 insert into users values('20191003027','123','邬坤源');
 insert into users values('20191003155','123','sanen');
+insert into users values('2019109101','123','sanens');
+
 
 /*管理员*/
 insert into admins values('20191003027','12','小番茄夫斯基');
