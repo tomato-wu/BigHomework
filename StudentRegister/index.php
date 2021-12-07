@@ -19,7 +19,8 @@
                         <!-- 账号 =======================================================-->
 
                         <h3>账号</h3>
-                        <input class="text" type="text" name="RegisterUserName">
+                        <input class="text" type="text" name="RegisterUserName" onblur="checkFirstName(this.value)">
+                        <span id="txtHint"> </span>
                         <!-- 密码 =======================================================-->
 
                         <h3>密码</h3>
@@ -69,6 +70,28 @@
                 alert("注册的账号密码和真实姓名不为空")
                 return false
             }
+        }
+
+        // ajax验证注册的电话号码是否已经使用
+        function checkFirstName(str) {
+            if (str == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            }
+            if (window.XMLHttpRequest) {
+                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "checkName.php?q=" + str + "&t=" + Math.random(), true);
+            xmlhttp.send();
         }
     </script>
 </body>

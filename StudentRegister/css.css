@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+span {
+    color: red;
+    font-size: 8px;
+  }
 
 .wrap {
     width: 100%;
