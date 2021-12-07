@@ -10,12 +10,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to left top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background-color: rgb(34, 61, 101);
 }
 
 .form {
-    width: 900px;
-    height: 560px;
+    width: 800px;
+    height: 460px;
     display: flex;
     border-radius: 20px;
     overflow: hidden;
@@ -23,8 +23,8 @@
 }
 
 .left {
-    width: 500px;
-    height: 560px;
+    width: 400px;
+    height: 460px;
 }
 
 .left video {
@@ -35,7 +35,7 @@
 
 .right {
     width: 400px;
-    height: 560px;
+    height: 460px;
     background: rgba(255, 255, 255, .9);
     display: flex;
     align-items: center;
@@ -60,7 +60,7 @@ h3 {
     font-size: 12px;
     font-weight: 400;
     color: #70b4e3;
-    padding: 20px 0;
+    padding: 10px 0;
 
 }
 
@@ -81,22 +81,10 @@ h3 {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 10px;
     background-image: linear-gradient(120deg, #76daec 0%, #c5a8de 100%);
 }
 
 .btn:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
-
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
-/*萌新UP主求点赞，微信：zongjianriji*/
