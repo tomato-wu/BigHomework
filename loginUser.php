@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("conn.php");
 ?>
 <?php
@@ -16,6 +17,7 @@ if (isset($username) && isset($userpass)) { //判断用户名和密码均不为�
 		</script>
 <?php
 	} else {
+		$_SESSION['userName'] = $username;
 		header("Location:StudentPage.php");
 	}
 }
