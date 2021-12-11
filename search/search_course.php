@@ -45,10 +45,10 @@ require_once("../conn.php") ?>
       if (!$result) {
         printf("Error: %s\n", mysqli_error($conn));
         exit();
-    }
-    
+      }
 
-      //遍历出来
+
+      //遍历出来从结果集中取得一行作为数字数组或关联数组：
       while ($row = mysqli_fetch_array($result)) {
 
         echo "<tr>";
