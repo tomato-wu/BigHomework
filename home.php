@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,12 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录界面</title>
     <link rel="stylesheet" href="./css/style.css">
-    <style>
-        span {
-            color: green;
-            font-size: small;
-        }
-    </style>
 </head>
 
 <body>
@@ -26,8 +23,7 @@
                     <!-- 表单 -->
                     <form action="loginUser.php" method="post" target='_blank' name="formBox" onsubmit="return LoginBtn()">
                         <h2>学生端登录</h2>
-                        <input type="text" placeholder="账号" name="userName" onblur="checkUserName(this.value)">
-                        <span id="txtHint"> </span>
+                        <input type="text" placeholder="账号" name="userName">
                         <input type="password" placeholder="密码" name="userPass">
                         <input type="submit" name="userSubmit" value="登录">
                         <p class="signup">是否是管理员？<a href="#" onclick="
@@ -45,8 +41,7 @@
                     <!-- 表单 -->
                     <form action="adminLogin.php" method="post" target="_blank" name="adminFormBox" onsubmit="return adminLoginBtn()">
                         <h2>管理端登录</h2>
-                        <input type="text" name="adminName" placeholder="管理员账号" onblur="checkAdminUserName(this.value)">
-                        <span id="adminText"> </span>
+                        <input type="text" name="adminName" placeholder="管理员账号">
                         <input type="password" name="adminPassword" placeholder="管理员密码">
                         <input type="submit" name="adminSubmit" value="登录">
                         <p class="signup">是否是学生?<a href="#" onclick="
@@ -105,50 +100,6 @@
 
         function gotoRegister() {
             window.location.href = "./StudentRegister/index.php";
-        }
-
-        // ajax验证登录的账号是否已经存在
-        function checkUserName(str) {
-            if (str == "") {
-                document.getElementById("txtHint").innerHTML = "";
-                return;
-            }
-            if (window.XMLHttpRequest) {
-                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // IE6, IE5 浏览器执行代码
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET", "checkUserName.php?q=" + str + "&t=" + Math.random(), true);
-            xmlhttp.send();
-        }
-
-        // ajax验证管理员登录时的账号是否已经存在
-        function checkAdminUserName(str) {
-            if (str == "") {
-                document.getElementById("adminText").innerHTML = "";
-                return;
-            }
-            if (window.XMLHttpRequest) {
-                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // IE6, IE5 浏览器执行代码
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("adminText").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET", "checkAdminUserName.php?q=" + str + "&t=" + Math.random(), true);
-            xmlhttp.send();
         }
     </script>
 </body>
