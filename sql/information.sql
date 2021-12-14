@@ -98,7 +98,7 @@ insert into student values('201909107','何以琛','男','法学1901班','2000.1
 /*用户*/
 insert into users values('20191003027','123','邬坤源');
 insert into users values('20191003155','123','sanen');
-insert into users values('2019109101','123','sanens');
+insert into users values('201909101','123','sanens');
 
 
 /*管理员*/
