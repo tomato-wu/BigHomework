@@ -8,8 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap 的 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/carousel/">
   <title>系统首页</title>
   <link rel="stylesheet" href="./css/home.css">
+  <!-- Custom styles for this template -->
+  <link href="carousel.css" rel="stylesheet">
   <style>
     .addBtnStyle {
       width: 200px;
@@ -21,6 +24,25 @@
       position: absolute;
       top: 54px;
       right: 35px;
+    }
+
+    .sectionStyle {
+      background-color: white;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
     }
   </style>
 </head>
@@ -73,7 +95,8 @@
 
     <div class="col-2">
       <div>
-        <a class="nav-link" href="?type=introducePage">首页</a>
+        <a class="nav-link" href="?type=homePage">系统首页</a>
+        <a class="nav-link" href="?type=introducePage">管理员介绍</a>
         <a class="nav-link" href="?type=informationPage">学生信息</a>
         <a class="nav-link" href="?type=selectPage">查询</a>
       </div>
@@ -84,6 +107,9 @@
       <div class="tab-content">
         <!--   表单显示      -->
         <?php
+        if ($_GET['type'] == 'homePage') {
+          require_once "./DetailPage/homePage.php";
+        }
         if ($_GET['type'] == 'introducePage') {
           require_once "./DetailPage/introducePage.html";
         }
