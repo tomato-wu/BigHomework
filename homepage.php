@@ -11,16 +11,16 @@
   <title>系统首页</title>
   <link rel="stylesheet" href="./css/home.css">
   <style>
-    .LoginOut {
-      position: absolute;
-      top: 54px;
-      right: 35px;
-    }
-
     .addBtnStyle {
       width: 200px;
       float: right;
       margin: 10px;
+    }
+
+    .PasswordSetting {
+      position: absolute;
+      top: 54px;
+      right: 35px;
     }
   </style>
 </head>
@@ -29,7 +29,44 @@
   <div class="jumbotron" id="header">
     <h1 class="display-4" style="color: aliceblue;">学生信息管理系统</h1>
     <p class="lead" style="color: aliceblue;">This is a simple student information system.</p>
-    <a class="btn btn-danger LoginOut" href="home.php" role="button">退出</a>
+    <button type="button" class="btn btn-primary PasswordSetting" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">修改密码</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- 提示 -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New PassWord</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <!-- 表单 -->
+            <form action="./change_password.php" method="post">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">用户名:</label>
+                <input type="text" class="form-control" id="recipient-name" name="adminName">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">旧密码:</label>
+                <input type="password" class="form-control" name="OldPassWord">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">新密码:</label>
+                <input type="password" class="form-control" name='NewPassWord'>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button class="btn btn-primary">确认</button>
+              </div>
+            </form>
+            <!-- 表单 -->
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="row">
@@ -39,7 +76,7 @@
         <a class="nav-link" href="?type=introducePage">首页</a>
         <a class="nav-link" href="?type=informationPage">学生信息</a>
         <a class="nav-link" href="?type=selectPage">查询</a>
-        <a class="nav-link" href="?type=settingPage">修改密码</a>
+        <a class="nav-link" href="?type=settingPage">账号设置</a>
       </div>
     </div>
 
