@@ -76,7 +76,6 @@
         <a class="nav-link" href="?type=introducePage">首页</a>
         <a class="nav-link" href="?type=informationPage">学生信息</a>
         <a class="nav-link" href="?type=selectPage">查询</a>
-        <a class="nav-link" href="?type=settingPage">账号设置</a>
       </div>
     </div>
 
@@ -93,9 +92,6 @@
         }
         if ($_GET['type'] == 'selectPage') {
           require_once "./DetailPage/selectPage.php";
-        }
-        if ($_GET['type'] == 'settingPage') {
-          require_once "./DetailPage/settingPage.php";
         }
         ?>
       </div>
