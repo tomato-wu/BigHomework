@@ -19,7 +19,7 @@ if (isset($adminName) && isset($adminPassword)) { //判断用户名和密码均�
     </script>
 <?php
   } else {
-    header("Location:homepage.php?type=introducePage");
+    header("Location:homepage.php?type=homePage");
   }
 }
 

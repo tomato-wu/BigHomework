@@ -39,6 +39,12 @@
       user-select: none;
     }
 
+    .LogOut {
+      position: fixed;
+      left: 30px;
+      bottom: 30px;
+    }
+
     .title-bar {
       margin: 0 0 80px 50px;
       font-size: 22px;
@@ -135,6 +141,8 @@
       </div>
     </div>
 
+    <button type="button" class="btn btn-danger btn-lg LogOut" onclick="LoginOut()">退出</button>
+
   </div>
   <script>
     function del_sure(s_id) { //形参
@@ -163,7 +171,11 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <!-- bootstrap -->
-
+  <script>
+    function LoginOut() {
+      window.location.href = "./home.php"
+    }
+  </script>
 </body>
 
 </html>
