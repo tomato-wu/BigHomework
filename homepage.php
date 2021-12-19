@@ -39,6 +39,19 @@
       user-select: none;
     }
 
+    .title-bar {
+      margin: 0 0 80px 50px;
+      font-size: 22px;
+      font-weight: bold;
+      border-left: 4px solid rgb(0, 157, 255);
+      padding-left: 20px;
+    }
+
+    .BoxStyle {
+      height: 400px;
+
+    }
+
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
@@ -62,7 +75,6 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-
           <div class="modal-body">
             <!-- 表单 -->
             <form action="./change_password.php" method="post">
