@@ -12,6 +12,7 @@ $username = $_SESSION['userName'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学生个人信息界面</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <style>
         .mytable {
             border: 2px;
@@ -20,6 +21,14 @@ $username = $_SESSION['userName'];
 
         td {
             text-align: center
+        }
+
+        .Backup {
+            width: 160px;
+            height: 40px;
+            position: absolute;
+            bottom: 5%;
+            right: 4%;
         }
     </style>
 
@@ -112,9 +121,15 @@ $username = $_SESSION['userName'];
             <td><?php echo $pra[6]; ?></td>
 
     </table>
+    <button type="button" class="btn btn-primary Backup" onclick="LoginOut()">退出</button>
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        function LoginOut() {
+            window.location.href = "./home.php";
+        }
+    </script>
 
 </body>
 

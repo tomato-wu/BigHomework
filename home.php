@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -9,6 +9,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录界面</title>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        #txtHint {
+            color: red;
+            font-size: small;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +29,9 @@ session_start();
                     <!-- 表单 -->
                     <form action="loginUser.php" method="post" target='_blank' name="formBox" onsubmit="return LoginBtn()">
                         <h2>学生端登录</h2>
-                        <input type="text" placeholder="账号" name="userName">
+                        <input type="text" placeholder="账号" name="userName" onblur="checkFirstName(this.value)">
+                        <span id="txtHint"> </span>
+
                         <input type="password" placeholder="密码" name="userPass">
                         <input type="submit" name="userSubmit" value="登录">
                         <p class="signup">是否是管理员？<a href="#" onclick="
@@ -100,6 +108,27 @@ session_start();
 
         function gotoRegister() {
             window.location.href = "./StudentRegister/index.php";
+        }
+        // ajax验证登录的账号是否在系统中存在
+        function checkFirstName(str) {
+            if (str == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            }
+            if (window.XMLHttpRequest) {
+                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "checkName.php?q=" + str + "&t=" + Math.random(), true);
+            xmlhttp.send();
         }
     </script>
 </body>
