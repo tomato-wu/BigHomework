@@ -58,7 +58,7 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_name`, `course_id`, `semester`, `year`) VALUES
-('数据结构123', '001', 'Spring', '2019'),
+('数据结构', '001', 'Spring', '2019'),
 ('组网技术', '003', 'Fall', '2019'),
 ('数据挖掘', '005', 'Fall', '2022');
 
