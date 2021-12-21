@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("conn.php");
 ?>
 <?php
@@ -19,6 +20,7 @@ if (isset($adminName) && isset($adminPassword)) { //判断用户名和密码均�
     </script>
 <?php
   } else {
+    $_SESSION['adminName'] = $adminName;
     header("Location:homepage.php?type=homePage");
   }
 }
