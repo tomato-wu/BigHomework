@@ -124,7 +124,6 @@ $username = $_SESSION['userName'];
     </table>
     <?php
     session_destroy();
-    echo ``
     ?>
 
     <button type="button" class="btn btn-primary Backup" onclick="LoginOut()">退出</button>

@@ -1,4 +1,7 @@
-<?php require_once("conn.php"); ?>
+<?php
+session_start();
+require_once("conn.php");
+?>
 <!doctype html>
 <html lang="zh-CN">
 
@@ -140,8 +143,9 @@
         ?>
       </div>
     </div>
-
-    <button type="button" class="btn btn-danger btn-lg LogOut" onclick="LoginOut()">退出</button>
+    <button type="button" class="btn btn-danger btn-lg LogOut" onclick="LoginOut()">
+      <?php session_destroy() ?>退出
+    </button>
 
   </div>
   <script>
