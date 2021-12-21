@@ -9,8 +9,6 @@ while ($row = mysqli_fetch_array($result)) {
     $name = $row['name'];
     $info = $row['info'];
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
