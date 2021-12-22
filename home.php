@@ -36,7 +36,7 @@ session_start();
                         <input type="submit" name="userSubmit" value="登录">
                         <p class="signup">是否是管理员？<a href="#" onclick="
                             toggleForm();">管理端</a></p>
-                        <p class="signup">是否是有账号？<a href="#" onclick="
+                        <p class="signup">是否拥有账号？<a href="#" onclick="
                             gotoRegister();">去注册</a></p>
                     </form>
                 </div>

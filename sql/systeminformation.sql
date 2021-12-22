@@ -16,7 +16,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
 --
 -- 数据库： `systeminformation`
 --
@@ -26,6 +25,9 @@ SET time_zone = "+00:00";
 --
 -- 表的结构 `admins`
 --
+
+CREATE database systeminformation;
+use systeminformation;
 
 CREATE TABLE `admins` (
   `adminName` char(20) NOT NULL,
