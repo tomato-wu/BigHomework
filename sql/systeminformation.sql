@@ -222,7 +222,7 @@ INSERT INTO `student_social_practice` (`s_id`, `practice_id`) VALUES
 
 CREATE TABLE `users` (
   `userName` char(20) NOT NULL,
-  `password` char(20) NOT NULL,
+  `password` char(220) NOT NULL,
   `name` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
