@@ -24,6 +24,5 @@ if (isset($adminName) && isset($adminPassword)) { //判断用户名和密码均�
     header("Location:homepage.php?type=homePage");
   }
 }
-
 mysqli_close($conn);
 ?>

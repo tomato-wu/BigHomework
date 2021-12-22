@@ -2,12 +2,8 @@
 
 require_once("conn.php");
 $q = isset($_GET["q"]) ? $_GET["q"] : '';
-
-
 $sql = "SELECT * FROM student_course where s_id=$q";
-
 $result = mysqli_query($conn, $sql);
-
 $count = mysqli_num_rows($result);
 if ($count > 0) {
   echo "";
