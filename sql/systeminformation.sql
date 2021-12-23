@@ -83,16 +83,7 @@ CREATE TABLE `section` (
 --
 
 INSERT INTO `section` (`s_id`, `course_id`, `score`) VALUES
-('2019100101', '001', 98),
-('2019100102', '001', 92),
-('2019100103', '003', 96),
-('2019100104', '004', 96),
-('2019100105', '005', 80),
-('2019100106', '006', 69),
-('2019100107', '003', 69),
-('2019100108', '002', 77),
-('2019100109', '004', 88),
-('2019100110', '005', 90);
+('2019100101', '001', 98);
 
 -- --------------------------------------------------------
 
@@ -114,7 +105,7 @@ CREATE TABLE `social_practice` (
 --
 
 INSERT INTO `social_practice` (`practice_id`, `practice_experience`, `date`, `place`, `pracetice_time`, `instructor`) VALUES
-('001', '三下乡', '暑假', '清远市123', '50', '卢思浩'),
+('001', '三下乡', '暑假', '清远市', '50', '卢思浩'),
 ('002', '关爱老人每周行活动', '每两周', '天河区敬老院', '30', 'Baby'),
 ('003', '寒宣', '寒假', '学生高中', '30', 'Stark'),
 ('004', '省长杯', ' 4月', '广外', '30', 'Baby'),
@@ -204,15 +195,7 @@ CREATE TABLE `student_social_practice` (
 
 INSERT INTO `student_social_practice` (`s_id`, `practice_id`) VALUES
 ('2019100101', '001'),
-('2019100102', '001'),
-('2019100103', '002'),
-('2019100104', '003'),
-('2019100105', '005'),
-('2019100106', '006'),
-('2019100107', '005'),
-('2019100108', '003'),
-('2019100109', '001'),
-('2019100110', '002');
+('2019100102', '001');
 
 -- --------------------------------------------------------
 
@@ -222,7 +205,7 @@ INSERT INTO `student_social_practice` (`s_id`, `practice_id`) VALUES
 
 CREATE TABLE `users` (
   `userName` char(20) NOT NULL,
-  `password` char(20) NOT NULL,
+  `password` char(255) NOT NULL,
   `name` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -231,7 +214,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userName`, `password`, `name`) VALUES
-('2019100101', '123', '张三');
+('2019100101', '202cb962ac59075b964b07152d234b70', '张三');
 
 
 -- --------------------------------------------------------
@@ -239,9 +222,18 @@ INSERT INTO `users` (`userName`, `password`, `name`) VALUES
 --
 -- 视图结构 `student_course`
 --
-DROP TABLE IF EXISTS `student_course`;
+DROP table IF EXISTS `student_course`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `student_course`  AS SELECT `student`.`s_id` AS `s_id`, `course`.`course_id` AS `course_id`, `course`.`course_name` AS `course_name`, `course`.`semester` AS `semester`, `course`.`year` AS `year`, `section`.`score` AS `score` FROM ((`student` join `course`) join `section` on(`student`.`s_id` = `section`.`s_id` and `course`.`course_id` = `section`.`course_id`)) ;
+CREATE ALGORITHM = UNDEFINED DEFINER=`root`@`localhost` 
+SQL SECURITY DEFINER VIEW `student_course`  
+AS SELECT `student`.`s_id` AS `s_id`,
+`course`.`course_id` AS `course_id`, 
+`course`.`course_name` AS `course_name`, 
+`course`.`semester` AS `semester`, 
+`course`.`year` AS `year`, 
+`section`.`score` AS `score` 
+FROM ((`student` join `course`) join `section` 
+on(`student`.`s_id` = `section`.`s_id` and `course`.`course_id` = `section`.`course_id`)) ;
 
 -- --------------------------------------------------------
 
