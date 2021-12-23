@@ -36,7 +36,7 @@ $username = $_SESSION['userName'];
 
 <body>
 
-    <h1 color="#58ACFA" align="center">学生信息展示界面</h1>
+    <h1 color="#58ACFA" align="center">学生信息</h1>
     <?php
     // 数据库语句
     $sql = "SELECT * FROM student where s_id=$username;";
@@ -122,17 +122,8 @@ $username = $_SESSION['userName'];
             <td><?php echo $pra[6]; ?></td>
 
     </table>
-    <?php
-    session_destroy();
-    ?>
 
-    <button type="button" class="btn btn-primary Backup" onclick="LoginOut()">退出</button>
-    <script>
-        function LoginOut() {
-            window.location.href = "./home.php";
-
-        }
-    </script>
+    <button type="button" class="btn btn-primary Backup" onclick="window.location.href='logout.php'">退出</button>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
