@@ -65,6 +65,8 @@ require_once("../conn.php") ?>
         echo "<td>
           <a href='../delete/delete_student.php?s_id=({$row['s_id']})'>删除</a>
           <a href='../change/student_change.php?s_id=({$row['s_id']})'>详细</a>
+          <a href='../stu_course.php?s_id=({$row['s_id']})'>课程</a>
+          <a href='../stu_social.php?s_id=({$row['s_id']})'>社会实践</a>
                      
                         </td>";
         echo "</tr>";
